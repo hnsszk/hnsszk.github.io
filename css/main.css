@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff16c1;
+  background: #57fff7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2665,22 +2665,13 @@ ul.breadcrumb li + li:last-child {
   }
 }
 body {
-  background-image: url("https://cdnjson.com/images/2023/01/19/background2.jpg");
+  background-image: url("//cdnjson.com/images/2023/01/19/background2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
 body .content-wrap {
   opacity: 0.88;
-}
-@media only screen and (max-width: 1000px) {
-  body body {
-    background: url("https://s2.loli.net/2023/01/18/67JcoV9ZM1WGxiK.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-  }
 }
 body .sidebar {
   background-color: transparent;
