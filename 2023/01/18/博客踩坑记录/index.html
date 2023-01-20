@@ -28,7 +28,7 @@
 <meta property="og:description" content="主要来介绍介绍这两天搭建博客当中遇到的一些坑">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-18T05:37:13.000Z">
-<meta property="article:modified_time" content="2023-01-19T14:54:14.278Z">
+<meta property="article:modified_time" content="2023-01-20T07:21:30.675Z">
 <meta property="article:author" content="沙岸~♪">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="踩坑">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -209,6 +209,8 @@
         </h1>
 
         <div class="post-meta">
+
+          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
@@ -222,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-19 22:54:14" itemprop="dateModified" datetime="2023-01-19T22:54:14+08:00">2023-01-19</time>
+                <time title="修改时间：2023-01-20 15:21:30" itemprop="dateModified" datetime="2023-01-20T15:21:30+08:00">2023-01-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,7 +280,25 @@
 <p>所以，综合前面的经验来看，这个bug基本可以表述如下：<br>由于同时使用lazyload以及pjax，加上配置少了一项导致发生冲突，图片无法正常显示。需要在lazyload配置中添加isSPA: true才能正常显示（这东西是和enable: true同级的）<br>但是不管怎么样，一旦手动重新刷新浏览器就会导致图片失效。<br>如果配置了isSPA: true后只需要点击左侧菜单栏操作就可以恢复，而false或者没有这一条会导致只有通过不断刷新浏览器才<strong>有可能</strong>恢复正常</p>
 <p>手机端暂时没有发现这个bug</p>
 <p>另外，由于本地至github的图片加载太慢，所以目前普遍在用图床。要记住如果之后有一些必须要有图片的博客，尽量在本地备份一份图片，防止图床失效导致信息丢失</p>
-<p>先到这里吧。</p>
+<h2 id="文章插入网易云音乐"><a href="#文章插入网易云音乐" class="headerlink" title="文章插入网易云音乐"></a>文章插入网易云音乐</h2><p>直接把网易云给的那一串什么iframe标签和src那些全给粘过来放到md正文就行了</p>
+<h2 id="置顶问题"><a href="#置顶问题" class="headerlink" title="置顶问题"></a>置顶问题</h2><p>原本在post.swig里是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;post-meta&quot;&gt;</span><br><span class="line">&#123;%- set date_diff = date(post.date) != date(post.updated) %&#125;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>    &lt;div class=&quot;post-meta&quot;&gt;
+
+      &#123;% if post.top %&#125;
+            <i class="fa fa-thumbtack" style="color: #191970"></i>
+            <font color=#00CED1>置顶</font>
+            <span class="post-meta-divider">|</span>
+          &#123;% endif %&#125;
+
+      &#123;%- set date_diff = date(post.date) != date(post.updated) %&#125;
+</code></pre>
+<pre><code>亲测网上说的图标设置为fa fa-thumb-tack无效，需要设置成fa fa-thumbtack
+
+先到这里吧
+</code></pre>
 
     </div>
 
@@ -364,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">语言问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E6%98%8E%E5%BA%A6%E9%97%AE%E9%A2%98%E3%80%81%E5%9C%86%E8%A7%92%E9%97%AE%E9%A2%98%E3%80%81%E6%90%9C%E7%B4%A2%E6%A0%8F%E8%A2%AB%E9%81%AE%E6%8E%A9%E9%97%AE%E9%A2%98%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">透明度问题、圆角问题、搜索栏被遮掩问题。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">头像问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cannot-get%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">cannot get问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%8C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">时区问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">标题问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">图片问题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">语言问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E6%98%8E%E5%BA%A6%E9%97%AE%E9%A2%98%E3%80%81%E5%9C%86%E8%A7%92%E9%97%AE%E9%A2%98%E3%80%81%E6%90%9C%E7%B4%A2%E6%A0%8F%E8%A2%AB%E9%81%AE%E6%8E%A9%E9%97%AE%E9%A2%98%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">透明度问题、圆角问题、搜索栏被遮掩问题。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">头像问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cannot-get%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">cannot get问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%8C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">时区问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">标题问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">图片问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90"><span class="nav-number">8.</span> <span class="nav-text">文章插入网易云音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%AE%E9%A1%B6%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">置顶问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,7 +400,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
