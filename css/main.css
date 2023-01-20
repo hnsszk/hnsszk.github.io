@@ -1,3 +1,6 @@
+img {
+  border-radius: 3%;
+}
 :root {
   --body-bg-color: #f5f7f9;
   --content-bg-color: #fff;
@@ -1169,7 +1172,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #de0ab6;
+  background: #0dcfb9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
