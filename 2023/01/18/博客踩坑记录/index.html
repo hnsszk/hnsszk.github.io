@@ -28,7 +28,7 @@
 <meta property="og:description" content="主要来介绍介绍这两天搭建博客当中遇到的一些坑">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-18T05:37:13.000Z">
-<meta property="article:modified_time" content="2023-01-20T15:17:16.543Z">
+<meta property="article:modified_time" content="2023-01-20T16:04:46.842Z">
 <meta property="article:author" content="沙岸~♪">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="踩坑">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-20 23:17:16" itemprop="dateModified" datetime="2023-01-20T23:17:16+08:00">2023-01-20</time>
+                <time title="修改时间：2023-01-21 00:04:46" itemprop="dateModified" datetime="2023-01-21T00:04:46+08:00">2023-01-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,8 +274,8 @@
 
 <h2 id="时区问题"><a href="#时区问题" class="headerlink" title="时区问题"></a>时区问题</h2><p>就填Aisa&#x2F;Shanghai，不要乱换。换成Beijing会报错的，不清楚为什么。</p>
 <h2 id="标题问题"><a href="#标题问题" class="headerlink" title="标题问题"></a>标题问题</h2><p>拿井号设置标题级别的时候空一个再跟文字</p>
-<h2 id="图片问题"><a href="#图片问题" class="headerlink" title="图片问题"></a>图片问题</h2><p>目前使用的均为图床图片，采用外链，故本地上传的他图片问题还没有去解决。<br>关于外链，出现bug：<br>简单来说，就是打开一个界面时，如果可视区域内（会有一定外延）恰好有markdown添加的图片，会导致有概率图片加载不出来（而往下翻的图片都能够正常加载。</p>
-<p>由于lazyload和pjax直接错综复杂的关系，直接说我也不清楚<br>按照有位博主的博客来说，这两个插件可能会有冲突，导致第一次图片无法显示，刷新一次才能显示。因此需要把站点配置文件中关于lazyload 的配置加上isSPA: false才可以。<br>实践发现，确实lazyload和pjax之间有直接联系，设置欠缺会导致冲突。<br>具体讲，当我开了lazyload和pjax，isSPA: false时，正常进入主页，图片无法加载。只有重复刷新浏览器（手动使用浏览器自带刷新按钮或重输网址）才能恢复</p>
+<h2 id="图片问题"><a href="#图片问题" class="headerlink" title="图片问题"></a>图片问题</h2><p>目前使用的均为图床图片，采用外链，故本地上传的他图片问题还没有去解决。<br>关于外链，出现bug：</p>
+<p>由于lazyload和pjax之间错综复杂的关系，直接说我也不清楚<br>按照有位博主的博客来说，这两个插件可能会有冲突，导致第一次图片无法显示，刷新一次才能显示。因此需要把站点配置文件中关于lazyload 的配置加上isSPA: false才可以。<br>实践发现，确实lazyload和pjax之间有直接联系，设置欠缺会导致冲突。<br>具体讲，当我开了lazyload和pjax，isSPA: false时，正常进入主页，图片无法加载。只有重复刷新浏览器（手动使用浏览器自带刷新按钮或重输网址）才能恢复</p>
 <p>而当我设置isSPA: true时，正常进入网页后<strong>主页</strong>图片可能正常也可能不正常，如果<strong>主页</strong>图片正常，当重复刷新浏览器后图片消失，但只要通过左侧菜单栏点击图标重新返回界面，图片就能正常显示。<br>或者说，只要开了它的true，那不管你图片能不能加载出来，只要用左边的菜单栏操作（比如主页、分类等等，只要不用浏览器自带的刷新按钮或者手动输入网址），图片都可以重新正常加载。</p>
 <p>所以，综合前面的经验来看，这个bug基本可以表述如下：<br>由于同时使用lazyload以及pjax，加上配置少了一项导致发生冲突，图片无法正常显示。需要在lazyload配置中添加isSPA: true才能正常显示（这东西是和enable: true同级的）<br>但是不管怎么样，一旦手动重新刷新浏览器就会导致图片失效。<br>如果配置了isSPA: true后只需要点击左侧菜单栏操作就可以恢复，而false或者没有这一条会导致只有通过不断刷新浏览器才<strong>有可能</strong>恢复正常</p>
 <p>手机端暂时没有发现这个bug</p>
@@ -291,6 +291,8 @@
 <p>##加注释<br>使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- xxxxxxxxxxx --&gt;</span><br></pre></td></tr></table></figure>
 
+
+<p>##开头的“—”<br>因为开头那三道杠表示区域划分。所以你就算在—下面单独空出100行再写正文，实际的效果也是一样的</p>
 <p>先到这里吧</p>
 <p>附录：搭建本博客用到的一些插件&#x2F;教程<br>**1.**pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。<br>**2.**插入网易云音乐<a target="_blank" rel="noopener" href="https://www.pudn.com/news/623aa4e849c1dc3c89805528.html">https://www.pudn.com/news/623aa4e849c1dc3c89805528.html</a> 标题：【Hexo】Next主题添加全局播放翻页不间断的网易云音乐<br>**3.**pjax和lazyload冲突导致图片不能加载 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41911142/article/details/124253167">https://blog.csdn.net/qq_41911142/article/details/124253167</a> 标题：终于解决了hexo开启懒加载后图片无法立即显示的问题<br>**4.**圆角、透明：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41911142/article/details/124253167">https://blog.csdn.net/qq_41911142/article/details/124253167</a> 标题：nexT主题更改背景图片和边框圆角<br>**5.**更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等） <a target="_blank" rel="noopener" href="https://blog.csdn.net/Bennnnnnn/article/details/128000842">https://blog.csdn.net/Bennnnnnn/article/details/128000842</a> 标题：Hexo-Next主题搭建个人博客最新配置教程！<br>**6.**搭建基础流程 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/550709268">https://zhuanlan.zhihu.com/p/550709268</a> 标题：利用Github DIY自己的个人博客<br>   但是，其中有需要改进的地方（跟着他做可能会失败的地方）<br>   ①安装nodejs和git不要下载压缩包，就下载一键安装的。自己配置环境变量可能受限于系统的差异导致报错<br>   ②安装hexo，要安装npm install -g hexo-cli ，因为按他那样安装的hexo是相对高阶一点的操作，可能会导致和现有的教程冲突<br>**7.**文章置顶 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a9922c3ebb61/">https://www.jianshu.com/p/a9922c3ebb61/</a> 标题：Hexo nexT主题之文章置顶<br>**8.**删除由hexo&amp;next强力驱动：同5<br>**9.**博客字数统计、浏览人次等 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41468462/article/details/88949445">https://blog.csdn.net/weixin_41468462/article/details/88949445</a><br>**10.**文章底部标签从井号变成tag图标：<br>       将    </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
