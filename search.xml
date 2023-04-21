@@ -34,7 +34,22 @@
   <entry>
     <title>归来</title>
     <url>/2023/04/21/%E5%BD%92%E6%9D%A5/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一月的时间，俯仰之间，即已逝去。</p>
+<span id="more"></span>
+<p>我经历了什么？是一整周的发烧虚弱，糟糕的期中考试和一波三折、徘徊不前的“学大师”活动筹备呢？</p>
+<p>我想，我经历的东西很多，而且，他们都是在原有的轨道之外运行的——那毫无规律、无依无靠的航迹，散漫地铺开在海面上，使人记忆深刻，却又转瞬即逝。</p>
+<p>终究，在经历了那么多之后，我回来了。</p>
+<p>我回到了那个熟悉的居所，回到了那令人安心的避风港。</p>
+<p>当然，我不是停止了探索，也不是停止了斗争——只是，在灵魂的深处，终究有得到了一些归属于安慰。</p>
+<p>一切都回来了<br>但也有些东西，再也回不来了</p>
+]]></content>
+      <categories>
+        <category>随想</category>
+        <category>抒写</category>
+      </categories>
+      <tags>
+        <tag>随想</tag>
+      </tags>
   </entry>
   <entry>
     <title>从废墟中崛起</title>
@@ -583,8 +598,8 @@
         <category>随想</category>
       </categories>
       <tags>
-        <tag>Galgame</tag>
         <tag>写给未来</tag>
+        <tag>Galgame</tag>
       </tags>
   </entry>
   <entry>
@@ -634,6 +649,8 @@
     <url>/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>主要来介绍介绍这两天搭建博客当中遇到的一些坑</p>
 <span id="more"></span>
+
+<p>#正文</p>
 <h2 id="语言问题"><a href="#语言问题" class="headerlink" title="语言问题"></a>语言问题</h2><p>让我想想我踩了几个坑了。在语言上，新版本明明是zh-CN，结果显示出来的确实阿拉伯语。这说明配置的语言文件不能识别，就默认换成排在第一位的阿拉伯语。而旧版的网站上提示用zh-Hans，综合一下，估计需要把next下language中的zh-CN重命名为zh-Hans，再把主题和hexo下的config文件的语言全部更换为zh-Hans即可。</p>
 <h2 id="透明度问题、圆角问题、搜索栏被遮掩问题。"><a href="#透明度问题、圆角问题、搜索栏被遮掩问题。" class="headerlink" title="透明度问题、圆角问题、搜索栏被遮掩问题。"></a>透明度问题、圆角问题、搜索栏被遮掩问题。</h2><p>圆角也给我搞懵了。看起来似乎是直接全局透明会导致出现阴影，而单独透明不会有这个问题。而菜单栏的透明度是不能用opacity的，否则会出现被其他图层覆盖而不能搜索。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//菜单栏的透明度设置</span><br><span class="line">.header-inner &#123;</span><br><span class="line">  background: rgba(255,255,255,0.9);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -671,12 +688,14 @@
 
 <p>##开头的“—”<br>在三道杠下空一行再插入内容，不论是图片还是什么，否则换行会失效</p>
 <p>先到这里吧</p>
-<p>附录：搭建本博客用到的一些插件&#x2F;教程<br>**1.**pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。<br>**2.**插入网易云音乐<a href="https://www.pudn.com/news/623aa4e849c1dc3c89805528.html">https://www.pudn.com/news/623aa4e849c1dc3c89805528.html</a> 标题：【Hexo】Next主题添加全局播放翻页不间断的网易云音乐<br>**3.**pjax和lazyload冲突导致图片不能加载 <a href="https://blog.csdn.net/qq_41911142/article/details/124253167">https://blog.csdn.net/qq_41911142/article/details/124253167</a> 标题：终于解决了hexo开启懒加载后图片无法立即显示的问题<br>**4.**圆角、透明：<a href="https://zhuanlan.zhihu.com/p/280784973">https://zhuanlan.zhihu.com/p/280784973</a> 标题：nexT主题更改背景图片和边框圆角<br>**5.**更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等） <a href="https://blog.csdn.net/Bennnnnnn/article/details/128000842">https://blog.csdn.net/Bennnnnnn/article/details/128000842</a> 标题：Hexo-Next主题搭建个人博客最新配置教程！<br>**6.**搭建基础流程 <a href="https://zhuanlan.zhihu.com/p/550709268">https://zhuanlan.zhihu.com/p/550709268</a> 标题：利用Github DIY自己的个人博客<br>   但是，其中有需要改进的地方（跟着他做可能会失败的地方）<br>   ①安装nodejs和git不要下载压缩包，就下载一键安装的。自己配置环境变量可能受限于系统的差异导致报错<br>   ②安装hexo，要安装npm install -g hexo-cli ，因为按他那样安装的hexo是相对高阶一点的操作，可能会导致和现有的教程冲突<br>**7.**文章置顶 <a href="https://www.jianshu.com/p/a9922c3ebb61/">https://www.jianshu.com/p/a9922c3ebb61/</a> 标题：Hexo nexT主题之文章置顶<br>**8.**删除由hexo&amp;next强力驱动：同5<br>**9.**博客字数统计、浏览人次等 <a href="https://blog.csdn.net/weixin_41468462/article/details/88949445">https://blog.csdn.net/weixin_41468462/article/details/88949445</a><br>**10.**文章底部标签从井号变成tag图标：<a href="https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a><br>       将    </p>
+<p>#附录：搭建本博客用到的一些插件&#x2F;教程<br>#####1.pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。<br>#####2.插入网易云音乐<a href="https://www.pudn.com/news/623aa4e849c1dc3c89805528.html">https://www.pudn.com/news/623aa4e849c1dc3c89805528.html</a> 标题：【Hexo】Next主题添加全局播放翻页不间断的网易云音乐<br>#####3.pjax和lazyload冲突导致图片不能加载 <a href="https://blog.csdn.net/qq_41911142/article/details/124253167">https://blog.csdn.net/qq_41911142/article/details/124253167</a> 标题：终于解决了hexo开启懒加载后图片无法立即显示的问题<br>#####4.圆角、透明：<a href="https://zhuanlan.zhihu.com/p/280784973">https://zhuanlan.zhihu.com/p/280784973</a> 标题：nexT主题更改背景图片和边框圆角<br>#####5.更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等） <a href="https://blog.csdn.net/Bennnnnnn/article/details/128000842">https://blog.csdn.net/Bennnnnnn/article/details/128000842</a> 标题：Hexo-Next主题搭建个人博客最新配置教程！<br>#####6.搭建基础流程 <a href="https://zhuanlan.zhihu.com/p/550709268">https://zhuanlan.zhihu.com/p/550709268</a> 标题：利用Github DIY自己的个人博客<br>   但是，其中有需要改进的地方（跟着他做可能会失败的地方）<br>   ①安装nodejs和git不要下载压缩包，就下载一键安装的。自己配置环境变量可能受限于系统的差异导致报错<br>   ②安装hexo，要安装npm install -g hexo-cli ，因为按他那样安装的hexo是相对高阶一点的操作，可能会导致和现有的教程冲突<br>#####7.文章置顶 <a href="https://www.jianshu.com/p/a9922c3ebb61/">https://www.jianshu.com/p/a9922c3ebb61/</a> 标题：Hexo nexT主题之文章置顶<br>#####8.删除由hexo&amp;next强力驱动：同5<br>#####9.博客字数统计、浏览人次等 <a href="https://blog.csdn.net/weixin_41468462/article/details/88949445">https://blog.csdn.net/weixin_41468462/article/details/88949445</a><br>#####10.文章底部标签从井号变成tag图标：<a href="https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a><br>标题：基于Hexo+Next的主题优化总结&amp;踩过的坑</p>
+<pre><code>   将    
+</code></pre>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <p>修改为</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 
-<p>**11.**设置网站图标、字体、更改菜单栏点开后英文的方案等 <a href="https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc</a><br>**12.**插入图片，更改大小（md，html，插件法） <a href="https://blog.csdn.net/weixin_45509582/article/details/108582689">https://blog.csdn.net/weixin_45509582/article/details/108582689</a><br>  标题：hexo插入图片及控制大小</p>
+<p>#####11.设置网站图标、字体、更改菜单栏点开后英文的方案等 <a href="https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc</a> 标题：「教程篇」Hexo+ NexT 博客美化配置教程｜第七篇<br>#####12.插入图片，更改大小（md，html，插件法） <a href="https://blog.csdn.net/weixin_45509582/article/details/108582689">https://blog.csdn.net/weixin_45509582/article/details/108582689</a><br>  标题：hexo插入图片及控制大小</p>
 <pre><code>  需注意，作者在html部分第三段代码（省略一个量的那个）与实际不符，可能是版本原因，应该只留下width变量
 </code></pre>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg&quot; width=&quot;70%&quot; /&gt;</span><br></pre></td></tr></table></figure>
@@ -684,13 +703,14 @@
 <p>方法二（不能修改大小，适合本地图片）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![真红](https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg)</span><br></pre></td></tr></table></figure>
 
-<p>**13.**文章内图片圆角<br>请在站点根目录进入source、_data文件夹，如果没有variables.styl文件请手动创建，创建完毕后在其中添加</p>
+<p>#####13.文章内图片圆角<br>请在站点根目录进入source、_data文件夹，如果没有variables.styl文件请手动创建，创建完毕后在其中添加</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border-radius: 3%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>或</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border-top-left-radius: 50px;</span><br><span class="line">    border-top-right-radius: 50px;</span><br><span class="line">    border-bottom-right-radius: 50px;</span><br><span class="line">    border-bottom-left-radius: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>第一个表示图片的四个角都是一样的弧度<br>第二个可以自己手动设定每一个角的弧度<br>不过要注意，这样设置完后所有文章的图片都会加上圆角</p>
+<p>#####4.换电脑&#x2F;操作系统后源文件夹发布出现owner报错<br>即所有者的不一致导致的报错<br><a href="https://www.yii666.com/blog/343131.html">https://www.yii666.com/blog/343131.html</a><br>标题：fatal: detected dubious ownership in repository(已解决)</p>
 ]]></content>
       <categories>
         <category>兴趣</category>
