@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hnsszk.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":{"enable":true,"onlypost":false,"loadingImg":null,"isSPA":true},"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="主要来介绍介绍这两天搭建博客当中遇到的一些坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客踩坑记录">
+<meta property="og:url" content="http://hnsszk.github.io/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="沙岸~♪的博客">
+<meta property="og:description" content="主要来介绍介绍这两天搭建博客当中遇到的一些坑">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-01-18T05:37:13.000Z">
+<meta property="article:modified_time" content="2023-04-21T13:40:31.907Z">
+<meta property="article:author" content="沙岸~♪">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="踩坑">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://hnsszk.github.io/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://hnsszk.github.io/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/","path":"2023/01/18/博客踩坑记录/","title":"博客踩坑记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>博客踩坑记录 | 沙岸~♪的博客</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="www.hnsszknext.eu.org">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">沙岸~♪的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">祈祷明天——会是美好的一天</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">语言问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%8F%E6%98%8E%E5%BA%A6%E9%97%AE%E9%A2%98%E3%80%81%E5%9C%86%E8%A7%92%E9%97%AE%E9%A2%98%E3%80%81%E6%90%9C%E7%B4%A2%E6%A0%8F%E8%A2%AB%E9%81%AE%E6%8E%A9%E9%97%AE%E9%A2%98%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">透明度问题、圆角问题、搜索栏被遮掩问题。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E5%83%8F%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">头像问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cannot-get%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">cannot get问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%8C%BA%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">时区问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">标题问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">图片问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90"><span class="nav-number">8.</span> <span class="nav-text">文章插入网易云音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%AE%E9%A1%B6%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">置顶问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown%E6%8F%92%E5%85%A5%E4%BB%A3%E7%A0%81%E5%B1%95%E7%A4%BA%E5%8D%B4%E8%A2%AB%E6%89%A7%E8%A1%8C"><span class="nav-number">10.</span> <span class="nav-text">Markdown插入代码展示却被执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85"><span class="nav-number">11.</span> <span class="nav-text">主题安装</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="沙岸~♪"
+      src="//cdnjson.com/images/2023/02/11/787fde415e1571e84da379afa3427fda.png">
+  <p class="site-author-name" itemprop="name">沙岸~♪</p>
+  <div class="site-description" itemprop="description">随心~</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28556036&auto=0&height=66"></iframe>
+    </div>
+
+
+    
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://hnsszk.github.io/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="//cdnjson.com/images/2023/02/11/787fde415e1571e84da379afa3427fda.png">
+      <meta itemprop="name" content="沙岸~♪">
+    </span>
+
+
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="沙岸~♪的博客">
+      <meta itemprop="description" content="随心~">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="博客踩坑记录 | 沙岸~♪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+
+
+
+        <h1 class="post-title" itemprop="name headline">
+          博客踩坑记录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-18 13:37:13" itemprop="dateCreated datePublished" datetime="2023-01-18T13:37:13+08:00">2023-01-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-21 21:40:31" itemprop="dateModified" datetime="2023-04-21T21:40:31+08:00">2023-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B4%E8%B6%A3/" itemprop="url" rel="index"><span itemprop="name">兴趣</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B4%E8%B6%A3/%E8%AE%A1%E7%AE%97%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">计算机</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%85%B4%E8%B6%A3/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%B8%A9%E5%9D%91/" itemprop="url" rel="index"><span itemprop="name">踩坑</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/#waline-comments" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" id="/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" data-xid="/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>主要来介绍介绍这两天搭建博客当中遇到的一些坑</p>
+<span id="more"></span>
+
+<p>#正文</p>
+<h2 id="语言问题"><a href="#语言问题" class="headerlink" title="语言问题"></a>语言问题</h2><p>让我想想我踩了几个坑了。在语言上，新版本明明是zh-CN，结果显示出来的确实阿拉伯语。这说明配置的语言文件不能识别，就默认换成排在第一位的阿拉伯语。而旧版的网站上提示用zh-Hans，综合一下，估计需要把next下language中的zh-CN重命名为zh-Hans，再把主题和hexo下的config文件的语言全部更换为zh-Hans即可。</p>
+<h2 id="透明度问题、圆角问题、搜索栏被遮掩问题。"><a href="#透明度问题、圆角问题、搜索栏被遮掩问题。" class="headerlink" title="透明度问题、圆角问题、搜索栏被遮掩问题。"></a>透明度问题、圆角问题、搜索栏被遮掩问题。</h2><p>圆角也给我搞懵了。看起来似乎是直接全局透明会导致出现阴影，而单独透明不会有这个问题。而菜单栏的透明度是不能用opacity的，否则会出现被其他图层覆盖而不能搜索。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//菜单栏的透明度设置</span><br><span class="line">.header-inner &#123;</span><br><span class="line">  background: rgba(255,255,255,0.9);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>综合来讲，style.styl文件内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//背景图片设置</span><br><span class="line">body &#123;</span><br><span class="line">    background-image: url(https://s2.loli.net/2023/01/18/67JcoV9ZM1WGxiK.jpg);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-attachment: fixed;</span><br><span class="line">    background-size: 100% 100%;</span><br><span class="line">    //文章内容的透明度设置</span><br><span class="line">.content-wrap &#123;</span><br><span class="line">  opacity: 0.88;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">//侧边框的透明度设置</span><br><span class="line">.sidebar &#123;</span><br><span class="line">  background-color: transparent;</span><br><span class="line">  opacity: 0.9;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">//菜单栏的透明度设置</span><br><span class="line">.header-inner &#123;</span><br><span class="line">  background: rgba(255,255,255,0.9);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main-inner &#123; </span><br><span class="line">   // margin-top: 60px;</span><br><span class="line">   // padding: 60px 60px 60px 60px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.sidebar-inner &#123;</span><br><span class="line">  opacity: 0.9;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="头像问题"><a href="#头像问题" class="headerlink" title="头像问题"></a>头像问题</h2><p>老版本不能使用圆形头像，必须要新版本。老版本在18年左右就停更了</p>
+<h2 id="cannot-get问题"><a href="#cannot-get问题" class="headerlink" title="cannot get问题"></a>cannot get问题</h2><p>如果是connot get 什么什么%20，则需要把next中配置文件进行修改，举例如下(以tags标签报错为例)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  tags: / || fa fa-home</span><br><span class="line">  改为</span><br><span class="line"></span><br><span class="line">  menu:</span><br><span class="line">  tags: /|| fa fa-home</span><br></pre></td></tr></table></figure>
+
+<p>修改完之后不再提示20%，但是依旧报错。这时候需要进入gitbash输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+<p>在hexo目录下source文件夹中生成tags页面。修改其中tags.md内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;tags&quot;</span><br><span class="line">type: tags</span><br><span class="line">layout: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="时区问题"><a href="#时区问题" class="headerlink" title="时区问题"></a>时区问题</h2><p>就填Aisa&#x2F;Shanghai，不要乱换。换成Beijing会报错的，不清楚为什么。</p>
+<h2 id="标题问题"><a href="#标题问题" class="headerlink" title="标题问题"></a>标题问题</h2><p>拿井号设置标题级别的时候空一个再跟文字</p>
+<h2 id="图片问题"><a href="#图片问题" class="headerlink" title="图片问题"></a>图片问题</h2><p>目前使用的均为图床图片，采用外链，故本地上传的他图片问题还没有去解决。<br>关于外链，出现bug：</p>
+<p>由于lazyload和pjax之间错综复杂的关系，直接说我也不清楚<br>按照有位博主的博客来说，这两个插件可能会有冲突，导致第一次图片无法显示，刷新一次才能显示。因此需要把站点配置文件中关于lazyload 的配置加上isSPA: false才可以。<br>实践发现，确实lazyload和pjax之间有直接联系，设置欠缺会导致冲突。<br>具体讲，当我开了lazyload和pjax，isSPA: false时，正常进入主页，图片无法加载。只有重复刷新浏览器（手动使用浏览器自带刷新按钮或重输网址）才能恢复</p>
+<p>而当我设置isSPA: true时，正常进入网页后<strong>主页</strong>图片可能正常也可能不正常，如果<strong>主页</strong>图片正常，当重复刷新浏览器后图片消失，但只要通过左侧菜单栏点击图标重新返回界面，图片就能正常显示。<br>或者说，只要开了它的true，那不管你图片能不能加载出来，只要用左边的菜单栏操作（比如主页、分类等等，只要不用浏览器自带的刷新按钮或者手动输入网址），图片都可以重新正常加载。</p>
+<p>所以，综合前面的经验来看，这个bug基本可以表述如下：<br>由于同时使用lazyload以及pjax，加上配置少了一项导致发生冲突，图片无法正常显示。需要在lazyload配置中添加isSPA: true才能正常显示（这东西是和enable: true同级的）<br>但是不管怎么样，一旦手动重新刷新浏览器就会导致图片失效。<br>如果配置了isSPA: true后只需要点击左侧菜单栏操作就可以恢复，而false或者没有这一条会导致只有通过不断刷新浏览器才<strong>有可能</strong>恢复正常</p>
+<p>手机端暂时没有发现这个bug</p>
+<p>另外，由于本地至github的图片加载太慢，所以目前普遍在用图床。要记住如果之后有一些必须要有图片的博客，尽量在本地备份一份图片，防止图床失效导致信息丢失</p>
+<h2 id="文章插入网易云音乐"><a href="#文章插入网易云音乐" class="headerlink" title="文章插入网易云音乐"></a>文章插入网易云音乐</h2><p>直接把网易云给的那一串什么iframe标签和src那些全给粘过来放到md正文就行了</p>
+<h2 id="置顶问题"><a href="#置顶问题" class="headerlink" title="置顶问题"></a>置顶问题</h2><p>原本在post.swig里是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;post-meta&quot;&gt;</span><br><span class="line">&#123;%- set date_diff = date(post.date) != date(post.updated) %&#125;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;post-meta&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% if post.top %&#125;</span><br><span class="line">   &lt;i class=&quot;fa fa-thumbtack&quot; style=&quot;color: #191970&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=#00CED1&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;%- set date_diff = date(post.date) != date(post.updated) %&#125;</span><br></pre></td></tr></table></figure>
+<p>亲测网上说的图标设置为fa fa-thumb-tack无效，需要设置成fa fa-thumbtack</p>
+<h2 id="Markdown插入代码展示却被执行"><a href="#Markdown插入代码展示却被执行" class="headerlink" title="Markdown插入代码展示却被执行"></a>Markdown插入代码展示却被执行</h2><p>比如上面一条的代码，光写内容会显示出来置顶二字和一个图钉。为了要求我们展示的代码不被执行，可以采用&#96;&#96;&#96;后面紧跟随便一串字符，表示以下代码表示什么语言的代码。你整了个根本没有的计算机语言，自然就不会被执行了。</p>
+<h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><p>注意解压出来的文件夹要求点开后就得是配置文件所在的目录，你不能在next目录下再套一个只有next文件夹的目录。换句话说，不要套娃</p>
+<p>##加注释<br>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- xxxxxxxxxxx --&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>##开头的“—”<br>在三道杠下空一行再插入内容，不论是图片还是什么，否则换行会失效</p>
+<p>先到这里吧</p>
+<p>#附录：搭建本博客用到的一些插件&#x2F;教程<br>#####1.pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。<br>#####2.插入网易云音乐<a target="_blank" rel="noopener" href="https://www.pudn.com/news/623aa4e849c1dc3c89805528.html">https://www.pudn.com/news/623aa4e849c1dc3c89805528.html</a> 标题：【Hexo】Next主题添加全局播放翻页不间断的网易云音乐<br>#####3.pjax和lazyload冲突导致图片不能加载 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41911142/article/details/124253167">https://blog.csdn.net/qq_41911142/article/details/124253167</a> 标题：终于解决了hexo开启懒加载后图片无法立即显示的问题<br>#####4.圆角、透明：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/280784973">https://zhuanlan.zhihu.com/p/280784973</a> 标题：nexT主题更改背景图片和边框圆角<br>#####5.更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等） <a target="_blank" rel="noopener" href="https://blog.csdn.net/Bennnnnnn/article/details/128000842">https://blog.csdn.net/Bennnnnnn/article/details/128000842</a> 标题：Hexo-Next主题搭建个人博客最新配置教程！<br>#####6.搭建基础流程 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/550709268">https://zhuanlan.zhihu.com/p/550709268</a> 标题：利用Github DIY自己的个人博客<br>   但是，其中有需要改进的地方（跟着他做可能会失败的地方）<br>   ①安装nodejs和git不要下载压缩包，就下载一键安装的。自己配置环境变量可能受限于系统的差异导致报错<br>   ②安装hexo，要安装npm install -g hexo-cli ，因为按他那样安装的hexo是相对高阶一点的操作，可能会导致和现有的教程冲突<br>#####7.文章置顶 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a9922c3ebb61/">https://www.jianshu.com/p/a9922c3ebb61/</a> 标题：Hexo nexT主题之文章置顶<br>#####8.删除由hexo&amp;next强力驱动：同5<br>#####9.博客字数统计、浏览人次等 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41468462/article/details/88949445">https://blog.csdn.net/weixin_41468462/article/details/88949445</a><br>#####10.文章底部标签从井号变成tag图标：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a><br>标题：基于Hexo+Next的主题优化总结&amp;踩过的坑</p>
+<pre><code>   将    
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>#####11.设置网站图标、字体、更改菜单栏点开后英文的方案等 <a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc</a> 标题：「教程篇」Hexo+ NexT 博客美化配置教程｜第七篇<br>#####12.插入图片，更改大小（md，html，插件法） <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45509582/article/details/108582689">https://blog.csdn.net/weixin_45509582/article/details/108582689</a><br>  标题：hexo插入图片及控制大小</p>
+<pre><code>  需注意，作者在html部分第三段代码（省略一个量的那个）与实际不符，可能是版本原因，应该只留下width变量
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg&quot; width=&quot;70%&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>方法二（不能修改大小，适合本地图片）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![真红](https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg)</span><br></pre></td></tr></table></figure>
+
+<p>#####13.文章内图片圆角<br>请在站点根目录进入source、_data文件夹，如果没有variables.styl文件请手动创建，创建完毕后在其中添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border-radius: 3%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border-top-left-radius: 50px;</span><br><span class="line">    border-top-right-radius: 50px;</span><br><span class="line">    border-bottom-right-radius: 50px;</span><br><span class="line">    border-bottom-left-radius: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个表示图片的四个角都是一样的弧度<br>第二个可以自己手动设定每一个角的弧度<br>不过要注意，这样设置完后所有文章的图片都会加上圆角</p>
+<p>#####4.换电脑&#x2F;操作系统后源文件夹发布出现owner报错<br>即所有者的不一致导致的报错<br><a target="_blank" rel="noopener" href="https://www.yii666.com/blog/343131.html">https://www.yii666.com/blog/343131.html</a><br>标题：fatal: detected dubious ownership in repository(已解决)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"><i class="fa fa-tag"></i> 踩坑</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/17/%E8%BF%88%E5%87%BA%E8%B5%B7%E7%82%B9%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/" rel="prev" title="迈出起点的第一步">
+                  <i class="fa fa-chevron-left"></i> 迈出起点的第一步
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/01/18/QQ%E7%BE%A4%E5%90%8D%E7%A7%B0%E7%9A%84%E6%95%99%E8%AE%AD/" rel="next" title="QQ群名称的教训">
+                  QQ群名称的教训 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline-comments"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">沙岸~♪</span>
+</div>
+
+
+
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("01/17/2023 20:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+<div class="post-license">
+  本站全部原创内容版权归作者所有，未经允许不得转载。
+</div>
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+<script>
+NexT.utils.loadComments('#waline-comments', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js', () => {
+    new Waline(Object.assign({
+      lang: 'zh-Hans'
+    }, {"enable":true,"serverURL":"www.hnsszknext.eu.org","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":false,"requiredFields":["nick"],"locale":{"placeholder":"疑义相与析，畅所欲言，不登录也没关系哒"},"lang":"zh-cn","libUrl":null,"login":"enable"}, {
+      el: '#waline-comments',
+      path: "/2023/01/18/%E5%8D%9A%E5%AE%A2%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/",
+    }));
+  }, window.Waline);
+});
+</script>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
