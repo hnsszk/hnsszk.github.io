@@ -27,7 +27,7 @@
 <meta property="og:description" content="主要来介绍介绍这两天搭建博客当中遇到的一些坑">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-18T05:37:13.000Z">
-<meta property="article:modified_time" content="2023-05-28T04:07:02.753Z">
+<meta property="article:modified_time" content="2023-06-05T10:51:46.161Z">
 <meta property="article:author" content="沙岸~♪">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="踩坑">
@@ -157,18 +157,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -241,7 +241,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-28 12:07:02" itemprop="dateModified" datetime="2023-05-28T12:07:02+08:00">2023-05-28</time>
+      <time title="修改时间：2023-06-05 18:51:46" itemprop="dateModified" datetime="2023-06-05T18:51:46+08:00">2023-06-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,7 +328,12 @@
 <p>手机端暂时没有发现这个bug</p>
 <p>另外，由于本地至github的图片加载太慢，所以目前普遍在用图床。要记住如果之后有一些必须要有图片的博客，尽量在本地备份一份图片，防止图床失效导致信息丢失</p>
 <h2 id="文章插入网易云音乐"><a href="#文章插入网易云音乐" class="headerlink" title="文章插入网易云音乐"></a>文章插入网易云音乐</h2><p>直接把网易云给的那一串什么iframe标签和src那些全给粘过来放到md正文就行了</p>
-<h2 id="置顶问题"><a href="#置顶问题" class="headerlink" title="置顶问题"></a>置顶问题</h2><p>原本在post.swig里是</p>
+<h2 id="置顶问题"><a href="#置顶问题" class="headerlink" title="置顶问题"></a>置顶问题</h2><p>2023使用Next 8.X版本记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">3.置顶</span><br><span class="line">在post.njk的</span><br><span class="line">            &#123;&#123;- next_url(post.path, post.title or __(&#x27;post.untitled&#x27;), &#123;class: &#x27;post-title-link&#x27;, itemprop: &#x27;url&#x27;&#125;) &#125;&#125;</span><br><span class="line">          &#123;%- else %&#125;</span><br><span class="line">            &#123;&#123;- post.title &#125;&#125;</span><br><span class="line">            &#123;&#123;- post_edit(post.source) &#125;&#125;</span><br><span class="line">          &#123;%- endif %&#125;</span><br><span class="line">        &lt;/&#123;% if is_index %&#125;h2&#123;% else %&#125;h1&#123;% endif %&#125;&gt;</span><br><span class="line"></span><br><span class="line">        后加入</span><br><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">    &lt;i class=&quot;fa fa-thumb-tack&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=#00CED1&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;&lt;/span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">        &lt;div class=&quot;post-meta-container&quot;&gt;</span><br><span class="line">          &#123;&#123; partial(&#x27;_partials/post/post-meta.njk&#x27;) &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>原本在post.swig里是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;post-meta&quot;&gt;</span><br><span class="line">&#123;%- set date_diff = date(post.date) != date(post.updated) %&#125;</span><br></pre></td></tr></table></figure>
 <p>改为</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;post-meta&quot;&gt;</span><br><span class="line"></span><br><span class="line">  &#123;% if post.top %&#125;</span><br><span class="line">   &lt;i class=&quot;fa fa-thumbtack&quot; style=&quot;color: #191970&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;font color=#00CED1&gt;置顶&lt;/font&gt;</span><br><span class="line">    &lt;span class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;%- set date_diff = date(post.date) != date(post.updated) %&#125;</span><br></pre></td></tr></table></figure>
