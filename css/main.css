@@ -1590,7 +1590,7 @@ pre code {
   padding-top: 45px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
-  opacity: 0.98;
+  opacity: 0.982;
 }
 .use-motion .pagination,
 .use-motion .comments {
@@ -2678,7 +2678,7 @@ body {
 }
 .sidebar {
   background-color: transparent;
-  opacity: 0.96;
+  opacity: 0.99;
 }
 .header-inner {
   background: rgba(255,255,255,0.9);
@@ -2687,5 +2687,5 @@ body {
   background: rgba(255,255,255,0.9);
 }
 .sidebar-inner {
-  opacity: 0.9;
+  opacity: 1;
 }
