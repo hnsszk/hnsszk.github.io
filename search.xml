@@ -838,8 +838,8 @@
         <category>思考</category>
       </categories>
       <tags>
-        <tag>争论</tag>
         <tag>立场</tag>
+        <tag>争论</tag>
         <tag>中立</tag>
       </tags>
   </entry>
@@ -867,8 +867,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>主要来介绍介绍这两天搭建博客当中遇到的一些坑</p>
 <span id="more"></span>
 
-<p>#正文</p>
-<h2 id="语言问题"><a href="#语言问题" class="headerlink" title="语言问题"></a>语言问题</h2><p>让我想想我踩了几个坑了。在语言上，新版本明明是zh-CN，结果显示出来的确实阿拉伯语。这说明配置的语言文件不能识别，就默认换成排在第一位的阿拉伯语。而旧版的网站上提示用zh-Hans，综合一下，估计需要把next下language中的zh-CN重命名为zh-Hans，再把主题和hexo下的config文件的语言全部更换为zh-Hans即可。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="语言问题"><a href="#语言问题" class="headerlink" title="语言问题"></a>语言问题</h2><p>让我想想我踩了几个坑了。在语言上，新版本明明是zh-CN，结果显示出来的确实阿拉伯语。这说明配置的语言文件不能识别，就默认换成排在第一位的阿拉伯语。而旧版的网站上提示用zh-Hans，综合一下，估计需要把next下language中的zh-CN重命名为zh-Hans，再把主题和hexo下的config文件的语言全部更换为zh-Hans即可。</p>
 <h2 id="透明度问题、圆角问题、搜索栏被遮掩问题。"><a href="#透明度问题、圆角问题、搜索栏被遮掩问题。" class="headerlink" title="透明度问题、圆角问题、搜索栏被遮掩问题。"></a>透明度问题、圆角问题、搜索栏被遮掩问题。</h2><p>圆角也给我搞懵了。看起来似乎是直接全局透明会导致出现阴影，而单独透明不会有这个问题。而菜单栏的透明度是不能用opacity的，否则会出现被其他图层覆盖而不能搜索。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//菜单栏的透明度设置</span><br><span class="line">.header-inner &#123;</span><br><span class="line">  background: rgba(255,255,255,0.9);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>综合来讲，style.styl文件内容如下：</p>
@@ -893,7 +892,15 @@
 
 <h2 id="时区问题"><a href="#时区问题" class="headerlink" title="时区问题"></a>时区问题</h2><p>就填Aisa&#x2F;Shanghai，不要乱换。换成Beijing会报错的，不清楚为什么。</p>
 <h2 id="标题问题"><a href="#标题问题" class="headerlink" title="标题问题"></a>标题问题</h2><p>拿井号设置标题级别的时候空一个再跟文字</p>
-<h2 id="图片问题"><a href="#图片问题" class="headerlink" title="图片问题"></a>图片问题</h2><p>目前使用的均为图床图片，采用外链，故本地上传的他图片问题还没有去解决。<br>关于外链，出现bug：</p>
+<h2 id="图片问题"><a href="#图片问题" class="headerlink" title="图片问题"></a>图片问题</h2><h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg&quot; width=&quot;70%&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>方法二（不能修改大小，适合本地图片）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![真红](https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg)</span><br></pre></td></tr></table></figure>
+
+<h3 id="lazyload与pjax冲突"><a href="#lazyload与pjax冲突" class="headerlink" title="lazyload与pjax冲突"></a>lazyload与pjax冲突</h3><p>目前使用的均为图床图片，采用外链，故本地上传的他图片问题还没有去解决。<br>关于外链，出现bug：</p>
+<p>首先，我使用的lazyload安装是</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-lazyload-image --save</span><br></pre></td></tr></table></figure>
+
 <p>由于lazyload和pjax之间错综复杂的关系，直接说我也不清楚<br>按照有位博主的博客来说，这两个插件可能会有冲突，导致第一次图片无法显示，刷新一次才能显示。因此需要把站点配置文件中关于lazyload 的配置加上isSPA: false才可以。<br>实践发现，确实lazyload和pjax之间有直接联系，设置欠缺会导致冲突。<br>具体讲，当我开了lazyload和pjax，isSPA: false时，正常进入主页，图片无法加载。只有重复刷新浏览器（手动使用浏览器自带刷新按钮或重输网址）才能恢复</p>
 <p>而当我设置isSPA: true时，正常进入网页后<strong>主页</strong>图片可能正常也可能不正常，如果<strong>主页</strong>图片正常，当重复刷新浏览器后图片消失，但只要通过左侧菜单栏点击图标重新返回界面，图片就能正常显示。<br>或者说，只要开了它的true，那不管你图片能不能加载出来，只要用左边的菜单栏操作（比如主页、分类等等，只要不用浏览器自带的刷新按钮或者手动输入网址），图片都可以重新正常加载。</p>
 <p>所以，综合前面的经验来看，这个bug基本可以表述如下：<br>由于同时使用lazyload以及pjax，加上配置少了一项导致发生冲突，图片无法正常显示。需要在lazyload配置中添加isSPA: true才能正常显示（这东西是和enable: true同级的）<br>但是不管怎么样，一旦手动重新刷新浏览器就会导致图片失效。<br>如果配置了isSPA: true后只需要点击左侧菜单栏操作就可以恢复，而false或者没有这一条会导致只有通过不断刷新浏览器才<strong>有可能</strong>恢复正常</p>
@@ -918,14 +925,26 @@
 
 <p>##开头的“—”<br>在三道杠下空一行再插入内容，不论是图片还是什么，否则换行会失效</p>
 <p>先到这里吧</p>
-<p>#附录：搭建本博客用到的一些插件&#x2F;教程<br>#####1.pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。<br>#####2.插入网易云音乐<a href="https://www.pudn.com/news/623aa4e849c1dc3c89805528.html">https://www.pudn.com/news/623aa4e849c1dc3c89805528.html</a> 标题：【Hexo】Next主题添加全局播放翻页不间断的网易云音乐<br>#####3.pjax和lazyload冲突导致图片不能加载 <a href="https://blog.csdn.net/qq_41911142/article/details/124253167">https://blog.csdn.net/qq_41911142/article/details/124253167</a> 标题：终于解决了hexo开启懒加载后图片无法立即显示的问题<br>#####4.圆角、透明：<a href="https://zhuanlan.zhihu.com/p/280784973">https://zhuanlan.zhihu.com/p/280784973</a> 标题：nexT主题更改背景图片和边框圆角<br>#####5.更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等） <a href="https://blog.csdn.net/Bennnnnnn/article/details/128000842">https://blog.csdn.net/Bennnnnnn/article/details/128000842</a> 标题：Hexo-Next主题搭建个人博客最新配置教程！<br>#####6.搭建基础流程 <a href="https://zhuanlan.zhihu.com/p/550709268">https://zhuanlan.zhihu.com/p/550709268</a> 标题：利用Github DIY自己的个人博客<br>   但是，其中有需要改进的地方（跟着他做可能会失败的地方）<br>   ①安装nodejs和git不要下载压缩包，就下载一键安装的。自己配置环境变量可能受限于系统的差异导致报错<br>   ②安装hexo，要安装npm install -g hexo-cli ，因为按他那样安装的hexo是相对高阶一点的操作，可能会导致和现有的教程冲突<br>#####7.文章置顶 <a href="https://www.jianshu.com/p/a9922c3ebb61/">https://www.jianshu.com/p/a9922c3ebb61/</a> 标题：Hexo nexT主题之文章置顶<br>#####8.删除由hexo&amp;next强力驱动：同5<br>#####9.博客字数统计、浏览人次等 <a href="https://blog.csdn.net/weixin_41468462/article/details/88949445">https://blog.csdn.net/weixin_41468462/article/details/88949445</a><br>#####10.文章底部标签从井号变成tag图标：<a href="https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation</a><br>标题：基于Hexo+Next的主题优化总结&amp;踩过的坑</p>
-<pre><code>   将    
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>修改为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="零散：搭建本博客用到的一些插件-x2F-教程"><a href="#零散：搭建本博客用到的一些插件-x2F-教程" class="headerlink" title="零散：搭建本博客用到的一些插件&#x2F;教程"></a>零散：搭建本博客用到的一些插件&#x2F;教程</h1><h2 id="1-pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。"><a href="#1-pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。" class="headerlink" title="1.pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。"></a>1.pjax用于网易云音乐，表示局部刷新。当正常情况播放网易云音乐时，如果点进其他标签页，会导致播放暂停，因为播放器也被刷新了。</h2><h2 id="2-插入网易云音乐"><a href="#2-插入网易云音乐" class="headerlink" title="2.插入网易云音乐"></a>2.插入网易云音乐</h2><p><a href="https://www.pudn.com/news/623aa4e849c1dc3c89805528.html">【Hexo】Next主题添加全局播放翻页不间断的网易云音乐</a> </p>
+<h2 id="3-pjax和lazyload冲突导致图片不能加载"><a href="#3-pjax和lazyload冲突导致图片不能加载" class="headerlink" title="3.pjax和lazyload冲突导致图片不能加载"></a>3.pjax和lazyload冲突导致图片不能加载</h2><p><a href="https://blog.csdn.net/qq_41911142/article/details/124253167">终于解决了hexo开启懒加载后图片无法立即显示的问题</a></p>
+<h2 id="4-圆角、透明："><a href="#4-圆角、透明：" class="headerlink" title="4.圆角、透明："></a>4.圆角、透明：</h2><p><a href="https://zhuanlan.zhihu.com/p/280784973">nexT主题更改背景图片和边框圆角</a></p>
+<h2 id="5-更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等）"><a href="#5-更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等）" class="headerlink" title="5.更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等）"></a>5.更换背景（实际上这一篇给了非常多的内容，比如live2d，动画评论等等）</h2><p><a href="https://blog.csdn.net/Bennnnnnn/article/details/128000842">Hexo-Next主题搭建个人博客最新配置教程！</a></p>
+<h2 id="6-搭建基础流程"><a href="#6-搭建基础流程" class="headerlink" title="6.搭建基础流程"></a>6.搭建基础流程</h2><p> <a href="https://zhuanlan.zhihu.com/p/550709268%3E">利用Github DIY自己的个人博客</a><br>   但是，其中有需要改进的地方（跟着他做可能会失败的地方）<br>   ①安装nodejs和git不要下载压缩包，就下载一键安装的。自己配置环境变量可能受限于系统的差异导致报错<br>   ②安装hexo，要安装npm install -g hexo-cli ，因为按他那样安装的hexo是相对高阶一点的操作，可能会导致和现有的教程冲突</p>
+<h2 id="7-文章置顶-https-www-jianshu-com-p-a9922c3ebb61-标题：Hexo-nexT主题之文章置顶"><a href="#7-文章置顶-https-www-jianshu-com-p-a9922c3ebb61-标题：Hexo-nexT主题之文章置顶" class="headerlink" title="7.文章置顶 https://www.jianshu.com/p/a9922c3ebb61/ 标题：Hexo nexT主题之文章置顶"></a>7.文章置顶 <a href="https://www.jianshu.com/p/a9922c3ebb61/">https://www.jianshu.com/p/a9922c3ebb61/</a> 标题：Hexo nexT主题之文章置顶</h2><p>next8版本请参照正文中置顶的说明</p>
+<h2 id="8-删除由hexo-amp-next强力驱动：同5"><a href="#8-删除由hexo-amp-next强力驱动：同5" class="headerlink" title="8.删除由hexo&amp;next强力驱动：同5"></a>8.删除由hexo&amp;next强力驱动：同5</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//事实上可以直接修改主题配置文件</span><br><span class="line">  powered: false</span><br></pre></td></tr></table></figure>
 
-<p>#####11.设置网站图标、字体、更改菜单栏点开后英文的方案等 <a href="https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1655730405416444778&amp;wfr=spider&amp;for=pc</a> 标题：「教程篇」Hexo+ NexT 博客美化配置教程｜第七篇<br>#####12.插入图片，更改大小（md，html，插件法） <a href="https://blog.csdn.net/weixin_45509582/article/details/108582689">https://blog.csdn.net/weixin_45509582/article/details/108582689</a><br>  标题：hexo插入图片及控制大小</p>
+<h2 id="9-博客字数统计、浏览人次等"><a href="#9-博客字数统计、浏览人次等" class="headerlink" title="9.博客字数统计、浏览人次等"></a>9.博客字数统计、浏览人次等</h2><p><a href="https://blog.csdn.net/weixin_41468462/article/details/88949445">Hexo+NexT博客个性化</a></p>
+<h2 id="10-文章底部标签从井号变成tag图标："><a href="#10-文章底部标签从井号变成tag图标：" class="headerlink" title="10.文章底部标签从井号变成tag图标："></a>10.文章底部标签从井号变成tag图标：</h2><p><a href="https://www.jianshu.com/p/53670692c5a6?utm_campaign=haruki&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">基于Hexo+Next的主题优化总结&amp;踩过的坑</a></p>
+<p> Next8.16更新</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主题配置下打开</span><br><span class="line">tag_icon: true</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//旧版本：</span><br><span class="line">  将    </span><br><span class="line">              &lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;&#123;&#123; tag_indicate &#125;&#125; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">修改为</span><br><span class="line"></span><br><span class="line">              &lt;a href=&quot;&#123;&#123; url_for(tag.path) &#125;&#125;&quot; rel=&quot;tag&quot;&gt;&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt; &#123;&#123; tag.name &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-设置网站图标、字体、更改菜单栏点开后英文的方案等"><a href="#11-设置网站图标、字体、更改菜单栏点开后英文的方案等" class="headerlink" title="11.设置网站图标、字体、更改菜单栏点开后英文的方案等"></a>11.设置网站图标、字体、更改菜单栏点开后英文的方案等</h2><p><a href="https://baijiahao.baidu.com/s?id=1655730405416444778&wfr=spider&for=pc">「教程篇」Hexo+ NexT 博客美化配置教程｜第七篇</a></p>
+<h2 id="12-插入图片，更改大小（md，html，插件法）"><a href="#12-插入图片，更改大小（md，html，插件法）" class="headerlink" title="12.插入图片，更改大小（md，html，插件法）"></a>12.插入图片，更改大小（md，html，插件法）</h2><p> <a href="https://blog.csdn.net/weixin_45509582/article/details/108582689">hexo插入图片及控制大小</a></p>
 <pre><code>  需注意，作者在html部分第三段代码（省略一个量的那个）与实际不符，可能是版本原因，应该只留下width变量
 </code></pre>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg&quot; width=&quot;70%&quot; /&gt;</span><br></pre></td></tr></table></figure>
@@ -933,14 +952,14 @@
 <p>方法二（不能修改大小，适合本地图片）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![真红](https://cdnjson.com/images/2023/01/19/SHINKU_e19b.jpg)</span><br></pre></td></tr></table></figure>
 
-<p>#####13.文章内图片圆角<br>请在站点根目录进入source、_data文件夹，如果没有variables.styl文件请手动创建，创建完毕后在其中添加</p>
+<h2 id="13-文章内图片圆角"><a href="#13-文章内图片圆角" class="headerlink" title="13.文章内图片圆角"></a>13.文章内图片圆角</h2><p>请在站点根目录进入source、_data文件夹，如果没有variables.styl文件请手动创建，创建完毕后在其中添加</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border-radius: 3%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>或</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">img &#123;</span><br><span class="line">    border-top-left-radius: 50px;</span><br><span class="line">    border-top-right-radius: 50px;</span><br><span class="line">    border-bottom-right-radius: 50px;</span><br><span class="line">    border-bottom-left-radius: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>第一个表示图片的四个角都是一样的弧度<br>第二个可以自己手动设定每一个角的弧度<br>不过要注意，这样设置完后所有文章的图片都会加上圆角</p>
-<p>#####4.换电脑&#x2F;操作系统后源文件夹发布出现owner报错<br>即所有者的不一致导致的报错<br><a href="https://www.yii666.com/blog/343131.html">https://www.yii666.com/blog/343131.html</a><br>标题：fatal: detected dubious ownership in repository(已解决)</p>
+<h2 id="14-换电脑-x2F-操作系统后源文件夹发布出现owner报错"><a href="#14-换电脑-x2F-操作系统后源文件夹发布出现owner报错" class="headerlink" title="14.换电脑&#x2F;操作系统后源文件夹发布出现owner报错"></a>14.换电脑&#x2F;操作系统后源文件夹发布出现owner报错</h2><p>即所有者的不一致导致的报错<br><a href="https://www.yii666.com/blog/343131.html">fatal: detected dubious ownership in repository(已解决)</a></p>
 ]]></content>
       <categories>
         <category>兴趣</category>
