@@ -5,6 +5,10 @@ img {
   font-family: ZCOOL KuaiLe;
   src: url("/fonts/ZCOOL KuaiLe.ttf");
 }
+@font-face {
+  font-family: ZCOOL KuaiLe;
+  src: url("/fonts/yezi.ttf");
+}
 :root {
   --body-bg-color: #eee;
   --content-bg-color: #fff;
