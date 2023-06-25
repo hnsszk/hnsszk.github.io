@@ -3,11 +3,11 @@ img {
 }
 @font-face {
   font-family: ZCOOL KuaiLe;
-  src: url("/fonts/ZCOOL KuaiLe.ttf");
+  src: url("//cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/ZCOOL KuaiLe.ttf");
 }
 @font-face {
   font-family: xuanyue;
-  src: url("/fonts/xuanyue.ttf");
+  src: url("//cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/xuanyue.ttf");
 }
 :root {
   --body-bg-color: #eee;
