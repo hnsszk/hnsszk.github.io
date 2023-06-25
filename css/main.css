@@ -6,8 +6,8 @@ img {
   src: url("/fonts/ZCOOL KuaiLe.ttf");
 }
 @font-face {
-  font-family: yezi;
-  src: url("/fonts/yezi.ttf");
+  font-family: xuanyue;
+  src: url("/fonts/xuanyue.ttf");
 }
 :root {
   --body-bg-color: #eee;
