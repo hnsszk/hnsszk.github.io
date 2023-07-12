@@ -42,7 +42,10 @@
   <entry>
     <title>万华镜</title>
     <url>/2023/07/12/%E4%B8%87%E5%8D%8E%E9%95%9C/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>旧生命的终结，是通向新生命的开始……<br>在这个“爱”之“理”产生的世界中……找到自己的归宿……</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 
+src="//music.163.com/outchain/player?type=2&id=1971127046&auto=1&height=66"></iframe>
+
+<p>旧生命的终结，是通向新生命的开始……<br>在这个“爱”之“理”产生的世界中……找到自己的归宿……</p>
 <span id="more"></span>
 
 <p>芸芸众生，茫茫人海</p>
@@ -998,8 +1001,8 @@
         <category>思考</category>
       </categories>
       <tags>
-        <tag>立场</tag>
         <tag>争论</tag>
+        <tag>立场</tag>
         <tag>中立</tag>
       </tags>
   </entry>
