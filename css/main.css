@@ -9,6 +9,10 @@ img {
   font-family: xuanyue;
   src: url("//cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/xuanyue.ttf");
 }
+@font-face {
+  font-family: gudu;
+  src: url("https://cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/gudu.ttf");
+}
 :root {
   --body-bg-color: #eee;
   --content-bg-color: #fff;
