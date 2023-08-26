@@ -2,14 +2,6 @@ img {
   border-radius: 3%;
 }
 @font-face {
-  font-family: ZCOOL KuaiLe;
-  src: url("//cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/ZCOOL KuaiLe.ttf");
-}
-@font-face {
-  font-family: xuanyue;
-  src: url("//cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/xuanyue.ttf");
-}
-@font-face {
   font-family: gudu;
   src: url("https://cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/gudu.ttf");
 }
