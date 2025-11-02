@@ -3,7 +3,7 @@ img {
 }
 @font-face {
   font-family: gudu;
-  src: url("https://cdn.jsdelivr.net/gh/hnsszk/hnsszk.github.io/fonts/gudu.ttf");
+  src: url("/fonts/gudu.ttf");
 }
 :root {
   --body-bg-color: #eee;
