@@ -1644,4 +1644,25 @@ src="//music.163.com/outchain/player?type=2&id=1971127046&auto=0&height=66"></if
         <tag>音乐</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Waline评论系统数据迁移</title>
+    <url>/2026/02/15/Waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>先前评论系统用leancloud存储数据，部署在vercel。然而前段时间leancloud发邮件称即将停止服务，故准备将数据迁移至waline推荐的neon数据库。</p>
+<span id="more"></span>
+
+<p>主要参考教程：<a href="https://www.hetong-re4per.com/">将 Waline 数据库从 LeanCloud 迁移到Neon-瞳のBlog</a><br>附带navicat含补丁下载地址：<a href="https://www.cnblogs.com/guanjia/p/18996189" title="发布于 2025-07-21 17:17">Navicat 17 下载安装教程：附补丁安装激活步骤（2025 最新版）​</a></p>
+<p>主要内容参照以上文章即可，此处只写几个注意事项</p>
+<p>1、waline版本。</p>
+<p>我搭建waline是在两三年前，之后就没再打理过，版本比较过时。在数据迁移至neon并关联至vercel上的项目时，部署报错，提示something wrong。<br>在vercel创建新waline项目，关联数据库，把邮箱什么的重新配置一遍反而比在旧物上打补丁容易。</p>
+<p>2、部署新项目时第一次依然出现了something wrong，且自身水平有限找不到原因。之后严格采取教程步骤，先创建neon数据库、导入数据，之后再关联到项目上就成功了。（之前是先关联到项目，再添加数据，不知道是否是这个的缘故）。</p>
+<p>3、更新了域名的A记录和CNAME。从76.76.21.21更新为vercel推荐的216.198.79.1。希望能快一点</p>
+]]></content>
+      <categories>
+        <category>计算机</category>
+        <category>兴趣</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
 </search>
